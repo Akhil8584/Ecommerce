@@ -1,0 +1,55 @@
+{%load static%}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{%static '/index.html'%}" class="logo"><img src="{%static '/images/logo.png'%}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+             <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          
+          {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{%url 'cycle'%}">Shop</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{%url 'contact'%}">Contact Us</a>
+         </li>
+         {%else%}
+          <li class="nav-item">
+             <a class="nav-link" href="{%url 'about'%}">About</a>
+          </li>
+          
+          <li class="nav-item">
+         </li>
+          <li class="nav-item">
+             <a class="nav-link" href="{%url 'news'%}">News</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'register'%}">Register</a>
+         </li>
+         
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+          <div class="login_menu">
+             <ul>
+               <li><a href="{%url 'login'%}">Login</a></li>
+                <li><a href="{%static '/#'%}"><img src="{%static '/images/trolly-icon.png'%}"></a></li>
+                <li><a href="{%static '/#'%}"><img src="{%static '/images/search-icon.png'%}"></a></li>
+             </ul>
+          </div>
+          <div></div>
+       </form>
+       {%endif%}
+    </div>
+    <div id="main">
+       <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="{%static '/images/toggle-icon.png'%}" style="height: 30px;"></span>
+    </div>
+ </nav>
